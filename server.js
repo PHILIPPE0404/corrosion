@@ -1,8 +1,9 @@
 const http = require('http');
 const path = require('path');
 
-// Charge le proxy Corrosion en local depuis les dossiers de votre dépôt
-const Corrosion = require('./src/server.js');
+// Charge le proxy Corrosion en local depuis les dossiers de votre dépôtconst Corrosion = require('./');
+
+const Corrosion = require('./');
 
 
 const proxy = new Corrosion({
