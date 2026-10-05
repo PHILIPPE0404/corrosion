@@ -2,7 +2,8 @@ const http = require('http');
 const path = require('path');
 
 // Charge le projet local
-const Corrosion = require('./src/index.js'); 
+const Corrosion = require('./');
+
 
 // On vérifie si l'import a besoin d'extraire la classe spécifique ou si elle est directe
 const CorrosionServer = typeof Corrosion === 'function' ? Corrosion : Corrosion.Corrosion;
