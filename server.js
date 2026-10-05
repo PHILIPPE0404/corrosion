@@ -1,12 +1,13 @@
 const http = require('http');
 const path = require('path');
 
-// Charge le proxy Corrosion en local depuis les dossiers de votre dépôtconst Corrosion = require('./');
+// Charge le projet local
+const Corrosion = require('./src/index.js'); 
 
-const Corrosion = require('./');
+// On vérifie si l'import a besoin d'extraire la classe spécifique ou si elle est directe
+const CorrosionServer = typeof Corrosion === 'function' ? Corrosion : Corrosion.Corrosion;
 
-
-const proxy = new Corrosion({
+const proxy = new CorrosionServer({
     prefix: '/search/',
     codec: 'xor'
 });
@@ -34,7 +35,6 @@ const server = http.createServer((req, res) => {
         <script>
             function navigate() {
                 const url = document.getElementById('url').value;
-                // Encode l'URL en XOR simple pour le proxy
                 const encoded = encodeURIComponent(url);
                 window.location.href = '/search/' + encoded;
             }
