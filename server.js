@@ -2,7 +2,8 @@ const http = require('http');
 const path = require('path');
 
 // Charge le proxy Corrosion en local depuis les dossiers de votre dépôt
-const Corrosion = require('./lib/index.js'); 
+const Corrosion = require('./src/server.js');
+
 
 const proxy = new Corrosion({
     prefix: '/search/',
